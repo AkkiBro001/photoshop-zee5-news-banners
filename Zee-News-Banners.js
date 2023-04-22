@@ -54,7 +54,8 @@ var NEWS_TEMPLATES = {
         mobile1: {
             size: { width: 1440, height: 810, res: 72 },
             fileName: "_Mobile",
-            fontSize: { twoLine: 128, oneLine: 32 }
+            fontSize: { twoLine: 128, oneLine: 32 },
+            
         },
         mobile2: {
             size: { width: 1170, height: 658, res: 72 },
@@ -68,6 +69,8 @@ var NEWS_TEMPLATES = {
             size: { width: 1920, height: 770, res: 72 },
             fileName: "_TV"
         },
+        
+
     },
 
     hp: {
@@ -94,7 +97,7 @@ var NEWS_TEMPLATES = {
     },
 
     hp_android: {
-        channels: Main_Channels,
+        channels: HPBanners,
         templatePath: "",
         masterFilePath: "E:\\Action\\Templates\\Zee 5 News\\Android Banner News\\",
         folderName: "HP Banners",
@@ -385,7 +388,7 @@ function grabDateFolders() {
 
 function channelList(TypeOfTemplate) {
 
-
+    
     var channelsList = NEWS_TEMPLATES[TypeOfTemplate]["channels"]
 
 
@@ -441,7 +444,7 @@ function handleUnsaveRefFile(doc) {
     var TypeOfTemplate = prompt("Enter Index of Template", "1");
     if (TypeOfTemplate == "" || isNaN(TypeOfTemplate) || parseInt(TypeOfTemplate) > 5 || parseInt(TypeOfTemplate) < 1) return alert("Wrong Input", false)
     var tempType;
-    var typeOfNews;
+    
     switch (TypeOfTemplate) {
         case "1": tempType = "regional";
             break;
@@ -792,15 +795,16 @@ function init(msg) {
             if (template === "hp_android") {
                 grabAndroidTemplate(doc, documentInfo, "mobile1")
 
-                if (isEnglishBanners(doc, channel)) {
-                    doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
-                    select_layer("Text")
-                    select_layer("Text Box", true)
-                    groupLayersets()
-                    doc.activeLayer.name = "Text Element"
-                    
-                    select_layer("Text Element")
-                }
+            }
+
+
+            if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
+                doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
+                select_layer("Text")
+                select_layer("Text Box", true)
+                groupLayersets()
+                doc.activeLayer.name = "Text Element"
+                select_layer("Text Element")
             }
 
             
@@ -835,16 +839,16 @@ function init(msg) {
 
                 grabAndroidTemplate(doc, documentInfo, "desktop")
 
-                if (isEnglishBanners(doc, channel)) {
-                    doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
-
-                    select_layer("Text")
-                    select_layer("Text Box", true)
-                    groupLayersets()
-                    doc.activeLayer.name = "Text Element"
-                }
             }
+            
+            if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
+                doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
 
+                select_layer("Text")
+                select_layer("Text Box", true)
+                groupLayersets()
+                doc.activeLayer.name = "Text Element"
+            }
             doc.save()
 
         }
@@ -877,11 +881,13 @@ function init(msg) {
             doc.save()
 
 
-            
-            app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile1, ".psd")))
-            app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile2, ".psd")))
-            app.open(new File(pathGenerator(documentInfo, FILE_NAME.desktop, ".psd")))
-            app.open(new File(pathGenerator(documentInfo, FILE_NAME.tv, ".psd")))
+            if(template !== "regional"){
+
+                app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile1, ".psd")))
+                app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile2, ".psd")))
+                app.open(new File(pathGenerator(documentInfo, FILE_NAME.desktop, ".psd")))
+                app.open(new File(pathGenerator(documentInfo, FILE_NAME.tv, ".psd")))
+            } 
 
             return init()
             

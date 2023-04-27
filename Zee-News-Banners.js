@@ -53,23 +53,43 @@ var NEWS_TEMPLATES = {
         folderName: "News Banners",
         mobile1: {
             size: { width: 1440, height: 810, res: 72 },
-            fileName: "_Mobile",
-            fontSize: { twoLine: 128, oneLine: 32 },
-            
+            fileName: "1440_Mobile.psd",
+            // fontSize: { twoLine: 128, oneLine: 32 },
+            guides: {
+                horizontal: [32, 50, 161, 178, 186, 588, 780],
+                vertical: [384, 1208, 1240, 1385, 1417]
+            },
+            requiredLayers: ["Gradient"]
+
+
         },
         mobile2: {
             size: { width: 1170, height: 658, res: 72 },
-            fileName: "_Mobile"
+            fileName: "1170_Mobile.psd"
         },
         desktop: {
             size: { width: 1920, height: 770, res: 72 },
-            fileName: "_Desktop"
+            fileName: "1920_Desktop.psd",
+            guides: {
+                horizontal: [34, 65, 169, 202, 611, 726],
+                vertical: [316, 1648, 1676, 1844, 1872]
+            },
+            requiredLayers: ["Gradient"]
+
         },
         tv: {
             size: { width: 1920, height: 770, res: 72 },
-            fileName: "_TV"
-        },
-        
+            fileName: "1920_TV.psd",
+            fontSize: { oneLine: 56 },
+            guides: {
+                horizontal: [16, 48, 83, 111, 152, 184],
+                vertical: [230, 1603, 1648, 1677, 1844, 1871]
+            },
+            textGuides: [[230,48],[230,152],[1648,152],[1648,48]],
+            requiredLayers: ["Gradient", "Text Box", "Text"]
+
+        }
+
 
     },
 
@@ -103,27 +123,31 @@ var NEWS_TEMPLATES = {
         folderName: "HP Banners",
         mobile1: {
             size: { width: 1440, height: 810, res: 72 },
-            fileName: "_1440_Mobile.psd",
+            fileName: "1440_Mobile.psd",
             guides: {
                 horizontal: [23, 207, 519, 552, 582, 615,],
                 vertical: [384, 1223, 1407]
             },
             fontSize: { twoLine: 128, oneLine: 70 },
             textGuides: [[384, 478], [384, 655], [1440, 655], [1440, 478]],
+            requiredLayers: ["Gradient", "Text Box", "Text", "Logo Circle"]
+
         },
         mobile2: {
             size: { width: 1170, height: 658, res: 72 },
-            fileName: "_1170_Mobile.psd"
+            fileName: "1170_Mobile.psd"
         },
         desktop: {
             size: { width: 1920, height: 770, res: 72 },
-            fileName: "_1920_Desktop.psd",
+            fileName: "1920_Desktop.psd",
             guides: {
                 horizontal: [9, 221, 640, 669],
                 vertical: [316, 1658, 1868]
             },
             textGuides: [[316, 605], [316, 703], [1920, 703], [1920, 605]],
             fontSize: { oneLine: 58 },
+            requiredLayers: ["Gradient", "Text Box", "Text", "Logo Circle"]
+
         },
         tv: {
             size: { width: 1920, height: 770, res: 72 },
@@ -134,8 +158,8 @@ var NEWS_TEMPLATES = {
             },
             textGuides: [[0, 50], [0, 148], [1613, 148], [1613, 50]],
             fontSize: { oneLine: 58 },
+            requiredLayers: ["Gradient", "Text Box", "Text", "Logo Circle"]
         },
-        requiredLayers: ["Gradient", "Text Box", "Text", "Logo Circle"]
     },
 
     vod: {
@@ -388,7 +412,7 @@ function grabDateFolders() {
 
 function channelList(TypeOfTemplate) {
 
-    
+
     var channelsList = NEWS_TEMPLATES[TypeOfTemplate]["channels"]
 
 
@@ -444,7 +468,7 @@ function handleUnsaveRefFile(doc) {
     var TypeOfTemplate = prompt("Enter Index of Template", "1");
     if (TypeOfTemplate == "" || isNaN(TypeOfTemplate) || parseInt(TypeOfTemplate) > 5 || parseInt(TypeOfTemplate) < 1) return alert("Wrong Input", false)
     var tempType;
-    
+
     switch (TypeOfTemplate) {
         case "1": tempType = "regional";
             break;
@@ -576,22 +600,31 @@ function createGuides(guides) {
 }
 
 function grabLayersFromTemp(doc, tempDoc, layerList, channel) {
-    
-    if(doc.name.indexOf("_Desktop") > -1 && HPBanners.join("-").indexOf(channel) > -1){
+
+    if (doc.name.indexOf("_Desktop") > -1 && HPBanners.join("-").indexOf(channel) > -1) {
         var tempArr = [];
-        for(var i = 0; i < layerList.length; i++){
-            if(layerList[i] != "Text"){
+        for (var i = 0; i < layerList.length; i++) {
+            if (layerList[i] != "Text") {
                 tempArr.push(layerList[i])
             }
         }
 
         layerList = tempArr;
     }
+
     app.activeDocument = tempDoc;
     if (typeof layerList == "object") {
         for (var layer = 0; layer < layerList.length; layer++) {
-            select_layer(layerList[layer])
-            tempDoc.activeLayer.duplicate(doc, ElementPlacement.PLACEATBEGINNING)
+            if (findLayer(tempDoc, layerList[layer])) {
+                if(layerList[layer] === "Text" && English_Channels.join("_").indexOf(channel) === -1){
+                    continue;
+                }else{
+
+                    tempDoc.activeLayer.duplicate(doc, ElementPlacement.PLACEATBEGINNING)
+                }
+
+            }
+
         }
 
         if (channel) {
@@ -604,23 +637,24 @@ function grabLayersFromTemp(doc, tempDoc, layerList, channel) {
 function grabAndroidTemplate(doc, documentInfo, format) {
     var template = documentInfo.template;
 
-    var requiredLayers = NEWS_TEMPLATES[template]["requiredLayers"];
+    var requiredLayers = NEWS_TEMPLATES[template][format]["requiredLayers"];
     var guides = NEWS_TEMPLATES[template][format]["guides"];
     var FileName = NEWS_TEMPLATES[template][format]["fileName"];
     var channel = documentInfo["channelName"];
-    
+
 
     app.open(new File(NEWS_TEMPLATES[template]["masterFilePath"] + NEWS_TEMPLATES[template][format]["fileName"]))
     var tempDoc = app.activeDocument;
     grabLayersFromTemp(doc, tempDoc, requiredLayers, channel, template)
-    
+
     tempDoc.close(SaveOptions.DONOTSAVECHANGES)
     app.activeDocument = doc;
     select_layer("Image")
+    clearGuides()
     createGuides(guides)
     InteractiveTransform()
     var path = documentInfo["docPath"]["cleanPath"].replace(/Ref/g, "")
-    savePSD(path + '\\' + channel + FileName)
+    savePSD(path + '\\' + channel + "_" + FileName)
 
 }
 
@@ -641,10 +675,10 @@ function isEnglishBanners(doc, channel) {
 }
 
 function processVectorText(doc, documentInfo, format) {
+    var template = documentInfo["template"]
     var FontHeight = NEWS_TEMPLATES[documentInfo["template"]][format]["fontSize"];
     var TextGuides = NEWS_TEMPLATES[documentInfo["template"]][format]["textGuides"];
-    var template = documentInfo["template"]
-    if (format !== "tv") {
+    if (format !== "tv" || (format === "tv" && template === "normal")) {
         var actLyr = doc.activeLayer;
         actLyr.move(doc.layers.getByName('Text Box'), ElementPlacement.PLACEBEFORE)
         var lyrWidth = actLyr.bounds[2] - actLyr.bounds[0]; //Grab the W value
@@ -679,8 +713,9 @@ function processVectorText(doc, documentInfo, format) {
 
         app.activeDocument = doc;
 
-        select_layer("Vector Smart Object")
-        doc.activeLayer.remove()
+        if(findLayer(app.activeDocument ,"Vector Smart Object")){
+            doc.activeLayer.remove()
+        }
         select_layer("Text")
     }
 
@@ -750,7 +785,7 @@ function SaveForWebBulk() {
 
 /*====== Initial Function =========================================================================================*/
 function init(msg) {
-    if(!msg) msg = "Do you want to process ";
+    if (!msg) msg = "Do you want to process ";
     preferences.rulerUnits = Units.PIXELS
 
     if (app.documents.length === 0) return
@@ -778,9 +813,10 @@ function init(msg) {
             SaveForWebBulk()
         }
     }
+
     else if (documentInfo.category === "News") {
         //*Process 1440 Mobile
-        if (documentInfo.isRef  && confirm(msg + documentInfo.category)) {
+        if (documentInfo.isRef && confirm(msg + documentInfo.category)) {
             if (docExt === "jpg") {
 
                 executeAction(stringIDToTypeID("newPlacedLayer"))
@@ -795,6 +831,8 @@ function init(msg) {
             if (template === "hp_android") {
                 grabAndroidTemplate(doc, documentInfo, "mobile1")
 
+            } else {
+                grabAndroidTemplate(doc, documentInfo, "mobile1")
             }
 
 
@@ -807,11 +845,11 @@ function init(msg) {
                 select_layer("Text Element")
             }
 
-            
+
         }
 
         //*Process Text
-        else if (docName.indexOf("_1440_Mobile") > -1 && docExt == "psd" && doc.activeLayer.name == "Vector Smart Object") {
+        else if (docName.indexOf("_1440_Mobile") > -1 && docExt == "psd" && findLayer(doc, "Vector Smart Object")) {
 
             processVectorText(doc, documentInfo, "mobile1")
 
@@ -821,17 +859,17 @@ function init(msg) {
         }
 
         //*Process 1170 mobile & 1920 desktop
-        else if (docName.indexOf("_1440_Mobile") > -1 && docExt == "psd" && doc.activeLayer.name == "Text Element") {
+        else if (docName.indexOf("_1440_Mobile") > -1 && docExt == "psd") {
             doc.save()
             doc.duplicate()
             var tempDoc = app.activeDocument;
             tempDoc.resizeImage(null, UnitValue(NEWS_TEMPLATES[template]["mobile2"]["size"]["height"], "px"), null, ResampleMethod.BICUBIC);
-            savePSD(docCleanPath + "\\" + channel + NEWS_TEMPLATES[template]["mobile2"]["fileName"])
+            savePSD(docCleanPath + "\\" + channel + "_" + NEWS_TEMPLATES[template]["mobile2"]["fileName"])
             tempDoc.close(SaveOptions.DONOTSAVECHANGES)
 
             //*Process 1920 Desktop
             deleteLayers(doc, ["Image"])
-            clearGuides()
+
 
             ResizeImage(documentInfo.category, NEWS_TEMPLATES[template]["desktop"]["size"], doc);
 
@@ -839,8 +877,11 @@ function init(msg) {
 
                 grabAndroidTemplate(doc, documentInfo, "desktop")
 
+            } else {
+                grabAndroidTemplate(doc, documentInfo, "desktop")
+
             }
-            
+
             if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
                 doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
 
@@ -854,7 +895,7 @@ function init(msg) {
         }
 
         //*1920 desktop text
-        else if (docName.indexOf("_1920_Desktop") > -1 && docExt == "psd" && doc.activeLayer.name == "Vector Smart Object") {
+        else if (docName.indexOf("_1920_Desktop") > -1 && docExt == "psd" && findLayer(doc, "Vector Smart Object")) {
 
             processVectorText(doc, documentInfo, "desktop")
 
@@ -862,35 +903,65 @@ function init(msg) {
         }
 
         //*1920 TV
-        else if (docName.indexOf("_1920_Desktop") > -1 && docExt == "psd" && doc.activeLayer.name == "Text Element") {
+        else if (docName.indexOf("_1920_Desktop") > -1 && docExt == "psd") {
+            if (findLayer(doc, "Text Element")) {
 
-            ungroupLayerset()
-            
-            deleteLayers(doc, ["Text", "Image"])
-            
-            if (template === "hp_android") {
-               grabAndroidTemplate(doc, documentInfo, "tv")
+                ungroupLayerset()
 
+                deleteLayers(doc, ["Text", "Image"])
+            } else {
+                deleteLayers(doc, ["Image"])
             }
 
-            //*Process existing Text
-            select_layer("Text");
-            doc.activeLayer.move(doc.layers.getByName('Text Box'), ElementPlacement.PLACEBEFORE)
+            if (template === "hp_android") {
 
-            processVectorText(doc, documentInfo, "tv")
-            doc.save()
+                grabAndroidTemplate(doc, documentInfo, "tv")
+
+                //*Process existing Text
+                select_layer("Text");
+                doc.activeLayer.move(doc.layers.getByName('Text Box'), ElementPlacement.PLACEBEFORE)
+
+                processVectorText(doc, documentInfo, "tv")
+                doc.save()
+
+            } else {
+                grabAndroidTemplate(doc, documentInfo, "tv")
+
+                if(template === "normal" && English_Channels.join("_").indexOf(channel) > -1){
+                    select_layer("Text")
+                    var copyText = prompt("Paste English Copy Here", "")
+                    doc.activeLayer.textItem.contents = copyText;
+                    
+                }else if(template === "normal"){
+                    return 
+                }
+            }
 
 
-            if(template !== "regional"){
+
+
+            if (template !== "regional") {
 
                 app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile1, ".psd")))
                 app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile2, ".psd")))
                 app.open(new File(pathGenerator(documentInfo, FILE_NAME.desktop, ".psd")))
                 app.open(new File(pathGenerator(documentInfo, FILE_NAME.tv, ".psd")))
-            } 
+            }
 
             return init()
-            
+
+        }
+        //*Process TV for Normal Banners
+        else if (docName.indexOf("_1920_TV") > -1 && docExt == "psd" && template === "normal" && findLayer(doc, "Vector Smart Object")) {
+            processVectorText(doc, documentInfo, "tv")
+            doc.save()
+
+            app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile1, ".psd")))
+            app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile2, ".psd")))
+            app.open(new File(pathGenerator(documentInfo, FILE_NAME.desktop, ".psd")))
+            app.open(new File(pathGenerator(documentInfo, FILE_NAME.tv, ".psd")))
+
+            return init()
         }
 
 

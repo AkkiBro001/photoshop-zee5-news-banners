@@ -151,7 +151,7 @@ var NEWS_TEMPLATES = {
         },
         tv: {
             size: { width: 1920, height: 770, res: 72 },
-            fileName: "_1920_TV.psd",
+            fileName: "1920_TV.psd",
             guides: {
                 horizontal: [9, 84, 112, 221],
                 vertical: [230, 1613, 1658, 1868]
@@ -537,7 +537,7 @@ function docInfo(doc) {
 
     }
 
-    var isHPBanner = HPBanners.join("_").indexOf(channelName) > -1
+    var isHPBanner = HPBanners.join("_").indexOf(channelName) > -1 && typeOfBanner === "HP Banners";
     var template
     if (isHPBanner) {
         template = "hp_android"
@@ -599,9 +599,9 @@ function createGuides(guides) {
     }
 }
 
-function grabLayersFromTemp(doc, tempDoc, layerList, channel) {
+function grabLayersFromTemp(doc, tempDoc, layerList, channel, template) {
 
-    if (doc.name.indexOf("_Desktop") > -1 && HPBanners.join("-").indexOf(channel) > -1) {
+    if (doc.name.indexOf("_Desktop") > -1 && HPBanners.join("-").indexOf(channel) > -1 && template === "hp_android") {
         var tempArr = [];
         for (var i = 0; i < layerList.length; i++) {
             if (layerList[i] != "Text") {
@@ -615,11 +615,12 @@ function grabLayersFromTemp(doc, tempDoc, layerList, channel) {
     app.activeDocument = tempDoc;
     if (typeof layerList == "object") {
         for (var layer = 0; layer < layerList.length; layer++) {
+            
             if (findLayer(tempDoc, layerList[layer])) {
                 if(layerList[layer] === "Text" && English_Channels.join("_").indexOf(channel) === -1){
                     continue;
                 }else{
-
+                    
                     tempDoc.activeLayer.duplicate(doc, ElementPlacement.PLACEATBEGINNING)
                 }
 
@@ -634,7 +635,7 @@ function grabLayersFromTemp(doc, tempDoc, layerList, channel) {
     }
 }
 
-function grabAndroidTemplate(doc, documentInfo, format) {
+function grabBannerTemplate(doc, documentInfo, format) {
     var template = documentInfo.template;
 
     var requiredLayers = NEWS_TEMPLATES[template][format]["requiredLayers"];
@@ -642,7 +643,7 @@ function grabAndroidTemplate(doc, documentInfo, format) {
     var FileName = NEWS_TEMPLATES[template][format]["fileName"];
     var channel = documentInfo["channelName"];
 
-
+    
     app.open(new File(NEWS_TEMPLATES[template]["masterFilePath"] + NEWS_TEMPLATES[template][format]["fileName"]))
     var tempDoc = app.activeDocument;
     grabLayersFromTemp(doc, tempDoc, requiredLayers, channel, template)
@@ -827,13 +828,9 @@ function init(msg) {
             ResizeImage(documentInfo.category, NEWS_TEMPLATES[template]["mobile1"]["size"], doc);
 
             //!5. Grab Templates (1440 x 810)
+            grabBannerTemplate(doc, documentInfo, "mobile1")
 
-            if (template === "hp_android") {
-                grabAndroidTemplate(doc, documentInfo, "mobile1")
-
-            } else {
-                grabAndroidTemplate(doc, documentInfo, "mobile1")
-            }
+            
 
 
             if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
@@ -873,14 +870,9 @@ function init(msg) {
 
             ResizeImage(documentInfo.category, NEWS_TEMPLATES[template]["desktop"]["size"], doc);
 
-            if (template === "hp_android") {
+            grabBannerTemplate(doc, documentInfo, "desktop")
 
-                grabAndroidTemplate(doc, documentInfo, "desktop")
-
-            } else {
-                grabAndroidTemplate(doc, documentInfo, "desktop")
-
-            }
+            
 
             if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
                 doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
@@ -913,9 +905,9 @@ function init(msg) {
                 deleteLayers(doc, ["Image"])
             }
 
+            grabBannerTemplate(doc, documentInfo, "tv")
             if (template === "hp_android") {
 
-                grabAndroidTemplate(doc, documentInfo, "tv")
 
                 //*Process existing Text
                 select_layer("Text");
@@ -925,7 +917,7 @@ function init(msg) {
                 doc.save()
 
             } else {
-                grabAndroidTemplate(doc, documentInfo, "tv")
+                
 
                 if(template === "normal" && English_Channels.join("_").indexOf(channel) > -1){
                     select_layer("Text")

@@ -858,21 +858,22 @@ function process_HP_to_Normal(doc, documentInfo) {
 
         //*Process Normal 1920_TV   
         }else{
-            if(findLayer(activeDoc, "Text")){
+            if(findLayer(activeDoc, "Text") && English_Channels.join("_").indexOf(channel) > -1 && template === "normal"){
 
                 var getTextCopy = activeDoc.activeLayer.textItem.contents;
                 activeDoc.activeLayer.remove()
             }
             grabBannerTemplate(activeDoc, activeDocInfo, "tv")
-            if(findLayer(activeDoc, "Text")){
-                activeDoc.activeLayer.move (activeDoc.layers.getByName('Text Box') , ElementPlacement.PLACEBEFORE)
+            select_layer("Text")
+            activeDoc.activeLayer.move (activeDoc.layers.getByName('Text Box') , ElementPlacement.PLACEBEFORE)
+            if(findLayer(activeDoc, "Text") && English_Channels.join("_").indexOf(channel) > -1 && template === "normal"){
                 activeDoc.activeLayer.textItem.contents = getTextCopy;
+            }
                 //Align Text
                 activeDoc.selection.select(NEWS_TEMPLATES[template]["tv"]["textGuides"])
                 align('AdCV')
                 align('AdLf')
                 activeDoc.selection.deselect()
-            }
             
         }
 
@@ -1098,7 +1099,7 @@ function init(msg) {
 
 
     } else {
-        alert("Opps")
+        alert("Banners Changes Pending")
     }
 
 }

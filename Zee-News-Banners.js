@@ -1070,15 +1070,6 @@ function init(msg) {
             
             openAllFilesFromFolder(documentInfo.docPath.cleanPath , "psd")
 
-
-            // if (template !== "regional") {
-
-            //     app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile1, ".psd")))
-            //     app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile2, ".psd")))
-            //     app.open(new File(pathGenerator(documentInfo, FILE_NAME.desktop, ".psd")))
-            //     app.open(new File(pathGenerator(documentInfo, FILE_NAME.tv, ".psd")))
-            // }
-
             return init()
 
         }
@@ -1089,10 +1080,7 @@ function init(msg) {
             
             //!Open all psd file from current folder
             openAllFilesFromFolder(documentInfo.docPath.cleanPath, "psd")
-            // app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile1, ".psd")))
-            // app.open(new File(pathGenerator(documentInfo, FILE_NAME.mobile2, ".psd")))
-            // app.open(new File(pathGenerator(documentInfo, FILE_NAME.desktop, ".psd")))
-            // app.open(new File(pathGenerator(documentInfo, FILE_NAME.tv, ".psd")))
+            
 
             return init()
         }

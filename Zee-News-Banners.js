@@ -580,7 +580,7 @@ function handleUnsaveRefFile(doc) {
     var channel = channelList(tempType)
 
     if (hasTransparancy() || doc.layers.length > 1 || doc.layers[0].typename == 'LayerSet') { //save PSD
-        if(doc.layers[0].typename == 'LayerSet'){
+        if(doc.layers[0].typename != 'LayerSet'){
 
             selectAllLayers()
             groupLayersets()

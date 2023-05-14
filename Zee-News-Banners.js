@@ -2,10 +2,10 @@
 var NEWS_SAVE_FILE_PATH = "D:\\Office Works\\News\\";
 var NEWS_MASTER_FILE_PATH = "D:\\Office Works\\News\\";
 var NEWS_FILE_NAMES = ["1440_Mobile.psd", "1920_Desktop.psd", "1920_TV.psd"];
-var CHANNEL_LIST = ['10 TV', 'Aaj Tak', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP News', 'ABP Sanjha', 'ANI', 'Asianet News Bangla', 'Asianet News Hindi', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'Asianet Newsable', 'BBC World News', 'BTV', 'CVR News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News Gujarat', 'India News Punjab-Himachal', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Kairali News', 'Latestly', 'Living India News', 'Media News Malayalam', 'News 24', 'News 9', 'News First Kannada', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'NTV Telugu', 'PinkVilla', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Republic Bharat', 'Republic TV', 'Saam TV', 'Sports Flashes', 'Suvarna News', 'TEZ', 'Times Now Navbharat', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 Bharatvarsh', 'TV9 Gujarati', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Wion', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Punjab Himachal', 'VOD', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH', 'Nation Next'];
-var Main_Channels = ['Aaj Tak', 'ABP News', 'ANI', 'Asianet News Hindi', 'Asianet Newsable', 'BBC World News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Latestly', 'News 24', 'News 9', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'PinkVilla', 'Republic Bharat', 'Republic TV', 'Sports Flashes', 'TEZ', 'Times Now Navbharat', 'TV9 Bharatvarsh', 'Wion', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH', 'Nation Next']
+var CHANNEL_LIST = ['10 TV', 'Aaj Tak', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP News', 'ABP Sanjha', 'ANI', 'Asianet News Bangla', 'Asianet News Hindi', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'Asianet Newsable', 'BBC World News', 'BTV', 'CVR News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News Gujarat', 'India News Punjab-Himachal', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Kairali News', 'Latestly', 'Living India News', 'Media News Malayalam', 'News 24', 'News 9', 'News First Kannada', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'NTV Telugu', 'PinkVilla', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Republic Bharat', 'Republic TV', 'Saam TV', 'Sports Flashes', 'Suvarna News', 'TEZ', 'Times Now Navbharat', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 Bharatvarsh', 'TV9 Gujarati', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Wion', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Punjab Himachal', 'VOD', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH', 'ZEE UP-UK', 'Nation Next'];
+var Main_Channels = ['Aaj Tak', 'ABP News', 'ANI', 'Asianet News Hindi', 'Asianet Newsable', 'BBC World News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Latestly', 'News 24', 'News 9', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'PinkVilla', 'Republic Bharat', 'Republic TV', 'Sports Flashes', 'TEZ', 'Times Now Navbharat', 'TV9 Bharatvarsh', 'Wion', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH','ZEE UP-UK', 'Nation Next']
 
-var Regional_Channles = ['10 TV', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP Sanjha', 'Asianet News Bangla', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'BTV', 'CVR News', 'India News Gujarat', 'India News Punjab-Himachal', 'Kairali News', 'Living India News', 'Media News Malayalam', 'News First Kannada', 'NTV Telugu', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Saam TV', 'Suvarna News', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 Gujarati', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Punjab Himachal']
+var Regional_Channles = ['10 TV', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP Sanja', 'Asianet News Bangla', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'BTV', 'CVR News', 'India News Gujarat', 'India News Punjab-Himachal', 'Kairali News', 'Living India News', 'Media News Malayalam', 'News First Kannada', 'NTV Telugu', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Saam TV', 'Suvarna News', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 GUJRATI', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Punjab Himachal']
 
 var English_Channels = ['Asianet Newsable', 'BBC World News', 'Euro News', 'India Today', 'News 9', 'NewsX', 'Republic TV', 'Wion', "Nation Next"];
 
@@ -32,17 +32,33 @@ var NEWS_TEMPLATES = {
         templatePath: "",
         masterFilePath: "E:\\Action\\Templates\\Zee 5 News\\News Creatives\\",
         folderName: "News Banners",
+        textMargin: 30,
+        textBoxOpacity: 80,
         mobile1: {
             size: { width: 1440, height: 810, res: 72 },
-            fileName: "",
+            fileName: "_1440.psd",
+            guides: {
+                horizontal: [107, 138, 672],
+                vertical: [134, 627, 1313, 1383]
+            },
+            fontSize: { twoLine: 640, oneLine: 752 },
+            textGuides: [[626,0],[626,810],[1383,810],[1383,0]],
+            requiredLayers: ["Gradient"]
         },
         mobile2: {
             size: { width: 1170, height: 658, res: 72 },
-            fileName: ""
+            fileName: "_1170.psd",
+            
+            requiredLayers: ["Gradient"]
         },
         desktop: {
             size: { width: 1920, height: 770, res: 72 },
-            fileName: ""
+            fileName: "_1920.psd",
+            guides: {
+                horizontal: [63,125,621],
+                vertical: [90,959,1822]
+            },
+            requiredLayers: ["Gradient"]
         },
     },
 
@@ -386,17 +402,75 @@ function ungroupLayerset() {
     function sTID(s) { return stringIDToTypeID(s) }
 }
 
-function openAllFilesFromFolder(folderPath, extention){
-    
-    
-    if(extention === "psd"){
+function openAllFilesFromFolder(folderPath, extention) {
 
-        for(i = !(fls = Folder(folderPath).getFiles(/.psd$/i)); i < fls.length;) open(fls[i++])
-    }else if(extention === "jpg"){
-        for(i = !(fls = Folder(folderPath).getFiles(/.jpg$/i)); i < fls.length;) open(fls[i++])
+
+    if (extention === "psd") {
+
+        for (i = !(fls = Folder(folderPath).getFiles(/.psd$/i)); i < fls.length;) open(fls[i++])
+    } else if (extention === "jpg") {
+        for (i = !(fls = Folder(folderPath).getFiles(/.jpg$/i)); i < fls.length;) open(fls[i++])
 
     }
 }
+
+function SelectTransparency()
+{
+    var idChnl = charIDToTypeID( "Chnl" );
+
+    var actionSelect = new ActionReference();
+    actionSelect.putProperty( idChnl, charIDToTypeID( "fsel" ) );     
+
+    var actionTransparent = new ActionReference();    
+    actionTransparent.putEnumerated( idChnl, idChnl, charIDToTypeID( "Trsp" ) );
+
+    var actionDesc = new ActionDescriptor();
+    actionDesc.putReference( charIDToTypeID( "null" ), actionSelect );
+    actionDesc.putReference( charIDToTypeID( "T   " ), actionTransparent );
+
+    executeAction( charIDToTypeID( "setd" ), actionDesc, DialogModes.NO );
+}
+
+function DrawShape() {
+    
+    var doc = app.activeDocument;
+    var y = arguments.length;
+    var i = 0;
+    
+    var lineArray = [];
+    for (i = 0; i < y; i++) {
+        lineArray[i] = new PathPointInfo;
+        lineArray[i].kind = PointKind.CORNERPOINT;
+        lineArray[i].anchor = arguments[i];
+        lineArray[i].leftDirection = lineArray[i].anchor;
+        lineArray[i].rightDirection = lineArray[i].anchor;
+    }
+  
+    var lineSubPathArray = new SubPathInfo();
+    lineSubPathArray.closed = true;
+    lineSubPathArray.operation = ShapeOperation.SHAPEADD;
+    lineSubPathArray.entireSubPath = lineArray;
+    var myPathItem = doc.pathItems.add("myPath", [lineSubPathArray]);
+    
+  
+    var desc88 = new ActionDescriptor();
+    var ref60 = new ActionReference();
+    ref60.putClass(stringIDToTypeID("contentLayer"));
+    desc88.putReference(charIDToTypeID("null"), ref60);
+    var desc89 = new ActionDescriptor();
+    var desc90 = new ActionDescriptor();
+    var desc91 = new ActionDescriptor();
+    desc91.putDouble(charIDToTypeID("Rd  "), 0.000000); // R
+    desc91.putDouble(charIDToTypeID("Grn "), 0.000000); // G
+    desc91.putDouble(charIDToTypeID("Bl  "), 0.000000); // B
+    var id481 = charIDToTypeID("RGBC");
+    desc90.putObject(charIDToTypeID("Clr "), id481, desc91);
+    desc89.putObject(charIDToTypeID("Type"), stringIDToTypeID("solidColorLayer"), desc90);
+    desc88.putObject(charIDToTypeID("Usng"), stringIDToTypeID("contentLayer"), desc89);
+    executeAction(charIDToTypeID("Mk  "), desc88, DialogModes.NO);
+    
+    myPathItem.remove();
+  }
 
 /*====== Custom Function =========================================================================================*/
 function grabDateFolders() {
@@ -505,9 +579,12 @@ function handleUnsaveRefFile(doc) {
 
     var channel = channelList(tempType)
 
-    if (hasTransparancy() || doc.layers.length > 1) { //save PSD
-        selectAllLayers()
-        groupLayersets()
+    if (hasTransparancy() || doc.layers.length > 1 || doc.layers[0].typename == 'LayerSet') { //save PSD
+        it(doc.layers[0].typename == 'LayerSet'){
+
+            selectAllLayers()
+            groupLayersets()
+        }
         doc.activeLayer.name = "Image";
 
         if (channel == null) return alert("Wrong Input", "Error", false)
@@ -599,11 +676,11 @@ function ResizeImage(Category, TargetSize, doc) {
             doc.resizeImage(UnitValue(doc.width.value * scale, "px"), null, TargetSize.res, ResampleMethod.BICUBIC); //For Width
             doc.resizeCanvas(null, UnitValue(TargetSize['height'], "px"), AnchorPosition.TOPCENTER); //For Height
         } else {
-
-            doc.resizeImage(null, UnitValue(doc.height.value * scale, "px"), TargetSize.res, ResampleMethod.BICUBIC); //For Height
+            
+            
+            doc.resizeImage(null, UnitValue(TargetSize.height, "px"), TargetSize.res, ResampleMethod.BICUBIC); //For Height
             doc.resizeCanvas(UnitValue(TargetSize['width'], "px"), null, AnchorPosition.MIDDLECENTER); //For Width
         }
-
     }
 }
 
@@ -620,7 +697,7 @@ function createGuides(guides) {
 
 function grabLayersFromTemp(doc, tempDoc, layerList, channel, template) {
 
-    
+
 
     if (doc.name.indexOf("_Desktop") > -1 && HPBanners.join("-").indexOf(channel) > -1 && template === "hp_android") {
         var tempArr = [];
@@ -650,8 +727,19 @@ function grabLayersFromTemp(doc, tempDoc, layerList, channel, template) {
         }
 
         if (channel) {
-            findLayer(tempDoc, channel)
+            if (template === "regional") {
+                tempDoc.activeLayer = tempDoc.layers[1];
+                
+                if (tempDoc.activeLayer.kind != "LayerKind.SMARTOBJECT") {
+                    throw Error("Logo Not found in Regional Template")
+                } 
+            }else {
+
+                findLayer(tempDoc, channel)
+            }
+
             tempDoc.activeLayer.duplicate(doc, ElementPlacement.PLACEATBEGINNING)
+
         }
     }
 }
@@ -664,8 +752,13 @@ function grabBannerTemplate(doc, documentInfo, format) {
     var FileName = NEWS_TEMPLATES[template][format]["fileName"];
     var channel = documentInfo["channelName"];
 
+    if (template === "regional") {
+       
+      app.open(new File(NEWS_TEMPLATES[template]["masterFilePath"] + channel + NEWS_TEMPLATES[template][format]["fileName"]))
+    } else {
 
-    app.open(new File(NEWS_TEMPLATES[template]["masterFilePath"] + NEWS_TEMPLATES[template][format]["fileName"]))
+        app.open(new File(NEWS_TEMPLATES[template]["masterFilePath"] + NEWS_TEMPLATES[template][format]["fileName"]))
+    }
     var tempDoc = app.activeDocument;
     grabLayersFromTemp(doc, tempDoc, requiredLayers, channel, template)
 
@@ -674,13 +767,19 @@ function grabBannerTemplate(doc, documentInfo, format) {
     select_layer("Image")
     clearGuides()
     createGuides(guides)
-    if(template === "normal" && HPBanners.join("_").indexOf(channel) > -1){
+    if (template === "normal" && HPBanners.join("_").indexOf(channel) > -1) {
         //No InteractiveTransform for HP to Normal Banners.
-    }else{
+    } else {
         InteractiveTransform()
     }
     var path = documentInfo["docPath"]["cleanPath"].replace(/Ref/g, "")
-    savePSD(path + '\\' + channel + "_" + FileName)
+    if(template === "regional"){
+
+        savePSD(path + '\\' + channel + FileName)
+    }else{
+
+        savePSD(path + '\\' + channel + "_" + FileName)
+    }
 
 }
 
@@ -701,12 +800,19 @@ function isEnglishBanners(doc, channel) {
 }
 
 function processVectorText(doc, documentInfo, format) {
+   
     var template = documentInfo["template"]
     var FontHeight = NEWS_TEMPLATES[documentInfo["template"]][format]["fontSize"];
     var TextGuides = NEWS_TEMPLATES[documentInfo["template"]][format]["textGuides"];
     if (format !== "tv" || (format === "tv" && template === "normal")) {
         var actLyr = doc.activeLayer;
-        actLyr.move(doc.layers.getByName('Text Box'), ElementPlacement.PLACEBEFORE)
+        if(template === "regional"){
+
+            actLyr.move(doc.layers.getByName('Gradient'), ElementPlacement.PLACEBEFORE)
+        }else{
+            actLyr.move(doc.layers.getByName('Text Box'), ElementPlacement.PLACEBEFORE)
+
+        }
         var lyrWidth = actLyr.bounds[2] - actLyr.bounds[0]; //Grab the W value
         var lyrHeight = actLyr.bounds[3] - actLyr.bounds[1]; //Grab the H value
 
@@ -723,17 +829,55 @@ function processVectorText(doc, documentInfo, format) {
         TextDoc.activeLayer.name = "Text";
 
         if (documentInfo["docName"].indexOf("1440") > -1 && documentInfo["docWidth"] == 1440) {
-            if (TextDoc.width.value > 45) {
-                TextDoc.resizeImage(null, UnitValue(FontHeight["twoLine"], "px"), null, ResampleMethod.BICUBIC);
-            } else {
-                TextDoc.resizeImage(null, UnitValue(FontHeight["oneLine"], "px"), null, ResampleMethod.BICUBIC);
+            if(template === "regional"){
+                var canvasMargin = NEWS_TEMPLATES[template]["textMargin"]
+                var textBoxOpacity = NEWS_TEMPLATES[template]["textBoxOpacity"]
+                if (TextDoc.width.value > 45) {
+                    
+                    TextDoc.resizeImage(UnitValue(FontHeight["twoLine"], "px"), null, null, ResampleMethod.BICUBIC);
+                    
+                } else {
+                    TextDoc.resizeImage(UnitValue(FontHeight["oneLine"], "px"), null, null, ResampleMethod.BICUBIC);
+                }
+                var docW = TextDoc.width.value  + canvasMargin;
+                var docH = TextDoc.height.value + canvasMargin;
+                TextDoc.resizeCanvas(UnitValue(docW,"px"),UnitValue(docH,"px"),AnchorPosition.MIDDLECENTER);
+
+                DrawShape([0, 0], [docW, 0], [docW, docH], [0, docH])
+                TextDoc.activeLayer.move(TextDoc.layers.getByName("Text"),ElementPlacement.PLACEAFTER);
+                TextDoc.activeLayer.opacity = textBoxOpacity;
+                TextDoc.activeLayer.name = "Text Box"
+            }else{
+                if (TextDoc.width.value > 45) {
+                    TextDoc.resizeImage(null, UnitValue(FontHeight["twoLine"], "px"), null, ResampleMethod.BICUBIC);
+                } else {
+                    TextDoc.resizeImage(null, UnitValue(FontHeight["oneLine"], "px"), null, ResampleMethod.BICUBIC);
+                }
             }
         } else {
+            if(template === "regional"){
 
-            TextDoc.resizeImage(null, UnitValue(FontHeight["oneLine"], "px"), null, ResampleMethod.BICUBIC);
+                TextDoc.resizeImage(UnitValue(FontHeight["oneLine"], "px"), null, null, ResampleMethod.BICUBIC);
+            }else{
+
+                TextDoc.resizeImage(null, UnitValue(FontHeight["oneLine"], "px"), null, ResampleMethod.BICUBIC);
+            }
         }
 
-        TextDoc.activeLayer.duplicate(doc.layers.getByName("Text Box"), ElementPlacement.PLACEBEFORE)
+        if(template === "regional"){
+
+            select_layer("Text")
+            select_layer("Text Box", true)
+            groupLayersets()
+            TextDoc.activeLayer.name = "Text Element"
+            TextDoc.activeLayer.duplicate(doc.layers.getByName('Gradient'), ElementPlacement.PLACEBEFORE)
+            
+        }else{
+
+            TextDoc.activeLayer.duplicate(doc.layers.getByName("Text Box"), ElementPlacement.PLACEBEFORE)
+        }
+
+        
 
         TextDoc.close(SaveOptions.DONOTSAVECHANGES)
 
@@ -742,8 +886,15 @@ function processVectorText(doc, documentInfo, format) {
         if (findLayer(app.activeDocument, "Vector Smart Object")) {
             doc.activeLayer.remove()
         }
-        select_layer("Text")
+
+        if(template !== "regional"){
+
+            select_layer("Text")
+        }else{
+            select_layer("Text Element")
+        }
     }
+    
 
 
 
@@ -751,7 +902,7 @@ function processVectorText(doc, documentInfo, format) {
 
     align('AdCV');
 
-    if (template == 'hp_android' && format == "tv") {
+    if ((template == 'hp_android' && format == "tv") || template == "regional") {
         align('AdRg');
     } else {
 
@@ -762,10 +913,13 @@ function processVectorText(doc, documentInfo, format) {
 
     InteractiveTransform()
 
-    select_layer("Text")
-    select_layer("Text Box", true)
-    groupLayersets()
-    doc.activeLayer.name = "Text Element"
+    if(template !== "regional"){
+
+        select_layer("Text")
+        select_layer("Text Box", true)
+        groupLayersets()
+        doc.activeLayer.name = "Text Element"
+    }
 
 }
 
@@ -790,6 +944,7 @@ function deleteLayers(doc, exception) {
 
     for (var d = 0; d < layers_bucket.length; d++) {
         select_layer(layers_bucket[d].name)
+        doc.activeLayer.allLocked = false;
         doc.activeLayer.remove()
     }
 
@@ -842,10 +997,10 @@ function process_HP_to_Normal(doc, documentInfo) {
 
         //*Process Normal 1440_Mobile & 1170_Mobile
         if (activeDocInfo.docName.indexOf("_1440_Mobile") > -1) {
-            
+
             grabBannerTemplate(activeDoc, activeDocInfo, "mobile1")
 
-            
+
 
             activeDoc.resizeImage(null, UnitValue(NEWS_TEMPLATES[template]["mobile2"]["size"]["height"], "px"), null, ResampleMethod.BICUBIC);
 
@@ -853,28 +1008,28 @@ function process_HP_to_Normal(doc, documentInfo) {
         }
 
         //*Process Normal 1920_Desktop
-        else if(activeDocInfo.docName.indexOf("_1920_Desktop") > -1){
+        else if (activeDocInfo.docName.indexOf("_1920_Desktop") > -1) {
             grabBannerTemplate(activeDoc, activeDocInfo, "desktop")
 
-        //*Process Normal 1920_TV   
-        }else{
-            if(findLayer(activeDoc, "Text") && English_Channels.join("_").indexOf(channel) > -1 && template === "normal"){
+            //*Process Normal 1920_TV   
+        } else {
+            if (findLayer(activeDoc, "Text") && English_Channels.join("_").indexOf(channel) > -1 && template === "normal") {
 
                 var getTextCopy = activeDoc.activeLayer.textItem.contents;
                 activeDoc.activeLayer.remove()
             }
             grabBannerTemplate(activeDoc, activeDocInfo, "tv")
             select_layer("Text")
-            activeDoc.activeLayer.move (activeDoc.layers.getByName('Text Box') , ElementPlacement.PLACEBEFORE)
-            if(findLayer(activeDoc, "Text") && English_Channels.join("_").indexOf(channel) > -1 && template === "normal"){
+            activeDoc.activeLayer.move(activeDoc.layers.getByName('Text Box'), ElementPlacement.PLACEBEFORE)
+            if (findLayer(activeDoc, "Text") && English_Channels.join("_").indexOf(channel) > -1 && template === "normal") {
                 activeDoc.activeLayer.textItem.contents = getTextCopy;
             }
-                //Align Text
-                activeDoc.selection.select(NEWS_TEMPLATES[template]["tv"]["textGuides"])
-                align('AdCV')
-                align('AdLf')
-                activeDoc.selection.deselect()
-            
+            //Align Text
+            activeDoc.selection.select(NEWS_TEMPLATES[template]["tv"]["textGuides"])
+            align('AdCV')
+            align('AdLf')
+            activeDoc.selection.deselect()
+
         }
 
         activeDoc.save()
@@ -882,7 +1037,7 @@ function process_HP_to_Normal(doc, documentInfo) {
 
     openAllFilesFromFolder(NormalBannersSavePath, "psd");
 
-    
+
 
 }
 
@@ -921,6 +1076,8 @@ function init(msg) {
 
     }
 
+    
+
     if (documentInfo.category === "News") {
 
         //!Process JPG to Open All documents
@@ -937,12 +1094,12 @@ function init(msg) {
 
                 //*intial action for HP to Normal Banner
                 if (template === "hp_android" && confirm("Do you want to convert HP Banners to Normal Banners ?")) {
-                app.open(new File(mobile1File))
-                return init()
+                    app.open(new File(mobile1File))
+                    return init()
                 }
             }
 
-            
+
 
         }
 
@@ -977,12 +1134,12 @@ function init(msg) {
                 select_layer("Text Element")
             }
 
-
+            
         }
 
         //*Process Text
-        else if (docName.indexOf("_1440_Mobile") > -1 && docExt == "psd" && findLayer(doc, "Vector Smart Object")) {
-
+        else if ((docName.indexOf("_1440_Mobile") > -1 || docName.indexOf("_1440") > -1) && docExt == "psd" && findLayer(doc, "Vector Smart Object")) {
+            
             processVectorText(doc, documentInfo, "mobile1")
 
             doc.save()
@@ -991,25 +1148,54 @@ function init(msg) {
         }
 
         //*Process 1170 mobile & 1920 desktop
-        else if (docName.indexOf("_1440_Mobile") > -1 && docExt == "psd") {
+        else if ((docName.indexOf("_1440_Mobile") > -1 || docName.indexOf("_1440") > -1) && docExt == "psd") {
+            
             doc.save()
             doc.duplicate()
             var tempDoc = app.activeDocument;
             tempDoc.resizeImage(null, UnitValue(NEWS_TEMPLATES[template]["mobile2"]["size"]["height"], "px"), null, ResampleMethod.BICUBIC);
-            savePSD(docCleanPath + "\\" + channel + "_" + NEWS_TEMPLATES[template]["mobile2"]["fileName"])
+            if(template === "regional"){
+
+                savePSD(docCleanPath + "\\" + channel  + NEWS_TEMPLATES[template]["mobile2"]["fileName"])
+            }else{
+
+                savePSD(docCleanPath + "\\" + channel + "_" + NEWS_TEMPLATES[template]["mobile2"]["fileName"])
+            }
             tempDoc.close(SaveOptions.DONOTSAVECHANGES)
 
             //*Process 1920 Desktop
-            deleteLayers(doc, ["Image"])
+            if(template === "regional"){
+
+                deleteLayers(doc, ["Image", "Text Element"])
+            }else{
+
+                deleteLayers(doc, ["Image"])
+            }
 
 
             ResizeImage(documentInfo.category, NEWS_TEMPLATES[template]["desktop"]["size"], doc);
 
             grabBannerTemplate(doc, documentInfo, "desktop")
 
+            if(template === "regional"){
+                
+                doc.activeLayer = doc.layers[0] //Select Logo
+                if(doc.activeLayer.kind == "LayerKind.SMARTOBJECT" && hasTransparancy()){
+                    SelectTransparency()
+                }else{
+                    throw alert("Logo is available in Regional Banner")
+                }
+                select_layer("Text Element");
+                align('AdRg')
 
+                doc.selection.selectAll()
+                align('AdCV')
 
-            if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
+                InteractiveTransform()
+
+            }
+
+            else if (isEnglishBanners(doc, channel) && (template === "hp" || template === "hp_android")) {
                 doc.activeLayer.textItem.contents = prompt("Enter English Copy", "")
 
                 select_layer("Text")
@@ -1017,13 +1203,21 @@ function init(msg) {
                 groupLayersets()
                 doc.activeLayer.name = "Text Element"
             }
+
             doc.save()
+
+            //!Open All regional template and save JPG
+            if(template === "regional"){
+                openAllFilesFromFolder(documentInfo.docPath.cleanPath, "psd")
+
+                return init()
+            }
 
         }
 
         //*1920 desktop text
         else if (docName.indexOf("_1920_Desktop") > -1 && docExt == "psd" && findLayer(doc, "Vector Smart Object")) {
-
+            
             processVectorText(doc, documentInfo, "desktop")
 
             doc.save()
@@ -1064,11 +1258,11 @@ function init(msg) {
                 }
             }
 
-            
+
 
             //!Open all psd file from current folder
-            
-            openAllFilesFromFolder(documentInfo.docPath.cleanPath , "psd")
+
+            openAllFilesFromFolder(documentInfo.docPath.cleanPath, "psd")
 
             return init()
 
@@ -1077,10 +1271,10 @@ function init(msg) {
         else if (docName.indexOf("_1920_TV") > -1 && docExt == "psd" && template === "normal" && findLayer(doc, "Vector Smart Object")) {
             processVectorText(doc, documentInfo, "tv")
             doc.save()
-            
+
             //!Open all psd file from current folder
             openAllFilesFromFolder(documentInfo.docPath.cleanPath, "psd")
-            
+
 
             return init()
         }

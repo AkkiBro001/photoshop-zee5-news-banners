@@ -2,10 +2,10 @@
 var NEWS_SAVE_FILE_PATH = "D:\\Office Works\\News\\";
 var NEWS_MASTER_FILE_PATH = "D:\\Office Works\\News\\";
 var NEWS_FILE_NAMES = ["1440_Mobile.psd", "1920_Desktop.psd", "1920_TV.psd"];
-var CHANNEL_LIST = ['10 TV', 'Aaj Tak', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP News', 'ABP Sanjha', 'ANI', 'Asianet News Bangla', 'Asianet News Hindi', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'Asianet Newsable', 'BBC World News', 'BTV', 'CVR News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News Gujarat', 'India News Punjab-Himachal', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Kairali News', 'Latestly', 'Living India News', 'Media News Malayalam', 'News 24', 'News 9', 'News First Kannada', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'NTV Telugu', 'PinkVilla', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Republic Bharat', 'Republic TV', 'Saam TV', 'Sports Flashes', 'Suvarna News', 'TEZ', 'Times Now Navbharat', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 Bharatvarsh', 'TV9 Gujarati', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Wion', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Punjab Himachal', 'VOD', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH', 'ZEE UP-UK', 'Nation Next'];
-var Main_Channels = ['Aaj Tak', 'ABP News', 'ANI', 'Asianet News Hindi', 'Asianet Newsable', 'BBC World News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Latestly', 'News 24', 'News 9', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'PinkVilla', 'Republic Bharat', 'Republic TV', 'Sports Flashes', 'TEZ', 'Times Now Navbharat', 'TV9 Bharatvarsh', 'Wion', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH','ZEE UP-UK', 'Nation Next']
+var CHANNEL_LIST = ['10 TV', 'Aaj Tak', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP News', 'ABP Sanjha', 'ANI', 'Asianet News Bangla', 'Asianet News Hindi', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'Asianet Newsable', 'BBC World News', 'BTV', 'CVR News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News Gujarat', 'India News Punjab-Himachal', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Kairali News', 'Latestly', 'Living India News', 'Media News Malayalam', 'News 24', 'News 9', 'News First Kannada', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'NTV Telugu', 'PinkVilla', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Republic Bharat', 'Republic TV', 'Saam TV', 'Sports Flashes', 'Suvarna News', 'TEZ', 'Times Now Navbharat', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 Bharatvarsh', 'TV9 Gujarati', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Wion', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Punjab Himachal', 'VOD', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH', 'ZEE UP-UK', 'Nation Next'].sort();
+var Main_Channels = ['Aaj Tak', 'ABP News', 'ANI', 'Asianet News Hindi', 'Asianet Newsable', 'BBC World News', 'E24', 'Editorji', 'ESPN Cricinfo', 'Euro News', 'GNT', 'India News UP-UK', 'India News', 'India Today', 'INDIA TV', 'Latestly', 'News 24', 'News 9', 'News J', 'News Nation', 'News State MP-CH', 'News State UP-UK', 'NewsX', 'PinkVilla', 'Republic Bharat', 'Republic TV', 'Sports Flashes', 'TEZ', 'Times Now Navbharat', 'TV9 Bharatvarsh', 'Wion', 'Zee Business', 'Zee Hindustan', 'Zee News', 'Zee Bihar Jharkhand', 'Boogle Bollywood', 'ZEE MP-CH','ZEE UP-UK', 'Nation Next'].sort()
 
-var Regional_Channles = ['10 TV', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP Sanja', 'Asianet News Bangla', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'BTV', 'CVR News', 'India News Gujarat', 'India News Punjab-Himachal', 'Kairali News', 'Living India News', 'Media News Malayalam', 'News First Kannada', 'NTV Telugu', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Saam TV', 'Suvarna News', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 GUJRATI', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Punjab Himachal']
+var Regional_Channles = ['10 TV', 'ABN Telugu', 'ABP Ananda', 'ABP Asmita', 'ABP Ganga', 'ABP Majha', 'ABP Nadu', 'ABP Sanja', 'Asianet News Bangla', 'Asianet News Tamil', 'Asianet News Telugu', 'Asianet News', 'BTV', 'CVR News', 'India News Gujarat', 'India News Punjab-Himachal', 'Kairali News', 'Living India News', 'Media News Malayalam', 'News First Kannada', 'NTV Telugu', 'Polimer Tamil', 'Prag News', 'Puthiya Thalaimurai Tamil', 'R bangla', 'Saam TV', 'Suvarna News', 'TV5 News', 'TV5 Telugu', 'TV9 Bangla', 'TV9 GUJRATI', 'TV9 Kannada', 'TV9 Marathi', 'TV9 Telugu', 'V6 Telugu', 'Vendhar TV', 'Zee 24 Ghanta', 'Zee 24 Kalak', 'Zee 24 Taas', 'Zee Punjab Himachal'].sort()
 
 var English_Channels = ['Asianet Newsable', 'BBC World News', 'Euro News', 'India Today', 'News 9', 'NewsX', 'Republic TV', 'Wion', "Nation Next"];
 
@@ -1149,7 +1149,9 @@ function init(msg) {
 
         //*Process 1170 mobile & 1920 desktop
         else if ((docName.indexOf("_1440_Mobile") > -1 || docName.indexOf("_1440") > -1) && docExt == "psd") {
-            
+            if(template === "regional" && !findLayer(doc, "Text Element")){
+               return alert("Text Vector file is missing")
+            }
             doc.save()
             doc.duplicate()
             var tempDoc = app.activeDocument;
@@ -1180,10 +1182,13 @@ function init(msg) {
             if(template === "regional"){
                 
                 doc.activeLayer = doc.layers[0] //Select Logo
-                if(doc.activeLayer.kind == "LayerKind.SMARTOBJECT" && hasTransparancy()){
-                    SelectTransparency()
-                }else{
-                    throw alert("Logo is available in Regional Banner")
+                
+                if(doc.activeLayer.kind == "LayerKind.SMARTOBJECT"){
+                    try{
+                        SelectTransparency()
+                    }catch(e){
+                        throw alert("Logo has not transperancy")
+                    }
                 }
                 select_layer("Text Element");
                 align('AdRg')
